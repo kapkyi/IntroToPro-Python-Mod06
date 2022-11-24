@@ -63,11 +63,14 @@ class Processor:
         :return: (list) of dictionary rows
         """
         # TODO: Add Code Here!
+        taskRemove = False  # variable used to find 'task' for removal
         for item in list_of_rows:
             if item['Task'].lower().strip() == task.lower().strip():
                 list_of_rows.remove(item)       # deleting/removing a task
-                print(task.lower().strip() + ' has been removed')
-            else:
+                taskRemove = True
+        if taskRemove == True:  # user input correct data
+            print(task.lower().strip() + ' has been removed')
+        else:                   # use input data not found in list
                 print(task.lower().strip() + ' is not on the list')
         return list_of_rows
 
